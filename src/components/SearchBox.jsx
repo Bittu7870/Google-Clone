@@ -13,7 +13,7 @@ const SearchBox = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!searchQuery.trim("")) return;
+    if (!searchQuery.trim()) return;
     router.push(`/search/web?q=${searchQuery}`);
   };
   return (
