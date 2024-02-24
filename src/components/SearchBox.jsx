@@ -1,21 +1,34 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { BsFillMicFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const SearchBox = () => {
-  const queryParams = useSearchParams();
+//   const queryParams = useSearchParams();
   const router = useRouter();
-  const queryValue = queryParams.get("q");
-  const [searchQuery, setSearchQuery] = useState(queryValue);
+//   const queryValue = queryParams.get("q");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const queryValue = searchParams.get("q");
+    setSearchQuery(queryValue || "");
+    setIsLoading(false);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
     router.push(`/search/web?q=${searchQuery}`);
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
