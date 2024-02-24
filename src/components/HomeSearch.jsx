@@ -13,14 +13,14 @@ const HomeSearch = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!input.trim("")) return;
-    route.push(`/search?q=${input}`);
+    route.push(`/search/web?q=${input}`);
   };
 
   const handleRandomSearch = async () => {
     setRandomSearchLoading(true);
     const data = await fetch(`https://random-word-api.herokuapp.com/word`);
     const result = await data.json();
-    route.push(`/search?q=${result[0]}`);
+    route.push(`/search/web?q=${result[0]}`);
     setRandomSearchLoading(false);
   };
   return (

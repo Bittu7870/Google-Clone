@@ -12,7 +12,7 @@ const CountryLookup = () => {
           `https://extreme-ip-lookup.com/json/?key=${process.env.NEXT_PUBLIC_IP_API_KEY}`
         );
         const data = await response.json();
-        const countryName = data.country;
+        const countryName = data.city;
 
         setCountry(countryName);
       } catch (error) {
