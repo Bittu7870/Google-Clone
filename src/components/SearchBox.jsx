@@ -9,7 +9,7 @@ const SearchBox = () => {
   const queryParams = useSearchParams();
   const router = useRouter();
   const queryValue = queryParams.get("q");
-  const [searchQuery, setSearchQuery] = useState(queryValue || "");
+  const [searchQuery, setSearchQuery] = useState(queryValue);
 
   const handleSubmit = (e) => {
     e.preventDefault();
