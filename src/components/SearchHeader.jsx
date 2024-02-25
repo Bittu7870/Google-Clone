@@ -16,7 +16,6 @@ const SearchHeader = () => {
             alt="google-logo"
             width={120}
             height={40}
-            //   style={{ width: "auto" }}
             priority
           />
         </Link>
@@ -28,7 +27,7 @@ const SearchHeader = () => {
           <TbGridDots className="bg-transparent hover:bg-gray-200 text-4xl p-2 rounded-full cursor-pointer " />
         </div>
         <button className="bg-blue-500 text-white px-5 py-2 rounded-md hover:brightness-105 hover:shadow-md font-medium transition-shadow ml-2 ">
-          SignUp
+          Sign in
         </button>
       </div>
     </header>
