@@ -5,6 +5,7 @@ import Logo from "../../public/googlelogo.png";
 import SearchBox from "./SearchBox";
 import { RiSettings3Line } from "react-icons/ri";
 import { TbGridDots } from "react-icons/tb";
+import SearchHeaderOptions from "./SearchHeaderOptions";
 
 const SearchHeader = () => {
   return (
@@ -30,6 +31,7 @@ const SearchHeader = () => {
           Sign in
         </button>
       </div>
+      <SearchHeaderOptions />
     </header>
   );
 };
