@@ -6,28 +6,16 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const SearchBox = () => {
-//   const queryParams = useSearchParams();
+  const queryParams = useSearchParams();
   const router = useRouter();
-//   const queryValue = queryParams.get("q");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const queryValue = searchParams.get("q");
-    setSearchQuery(queryValue || "");
-    setIsLoading(false);
-  }, []);
+  const queryValue = queryParams.get("q");
+  const [searchQuery, setSearchQuery] = useState(queryValue ||"");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
     router.push(`/search/web?q=${searchQuery}`);
   };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <form
