@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -47,9 +48,17 @@ const HomeSearch = () => {
         <button
           onClick={handleRandomSearch}
           disabled={randomSearchLoading}
-          className="bg-[#F8F9FA] w-36 h-10 text-sm text-gray-800 rounded-md hover:ring-gray-200 hover:border-2 active:ring-gray-300 hover:shadow-md transition-shadow disabled:shadow-sm disabled:opacity-80"
+          className="bg-[#F8F9FA] w-36 h-10 text-sm text-gray-800 rounded-md hover:ring-gray-200 hover:border-2 active:ring-gray-300 hover:shadow-md transition-shadow disabled:shadow-sm disabled:opacity-80 flex justify-center items-center"
         >
-          {randomSearchLoading ? "Loading..." : "I'm Feeling Lucky"}
+          {randomSearchLoading ? (
+            <img
+              src="spinner.svg"
+              alt="Loading..."
+              className="h-6 text-center"
+            />
+          ) : (
+            "I'm Feeling Lucky"
+          )}
         </button>
       </div>
     </>
