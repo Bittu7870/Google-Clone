@@ -3,8 +3,9 @@ import Link from "next/link";
 import React from "react";
 
 const WebSearchPage = async ({ searchParams }) => {
+  const startIndex = searchParams.start || 1;
   const response = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.q}`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.q}&start=${startIndex}`
   );
   if (!response.ok) {
     throw new Error("Failed to fetch data");
@@ -26,7 +27,7 @@ const WebSearchPage = async ({ searchParams }) => {
       </div>
     );
   }
-  return <div>{result && <WebSearchResults results={data} />}</div>;
+  return <div>{result.length > 0  && <WebSearchResults results={data} />}</div>;
 };
 
 export default WebSearchPage;

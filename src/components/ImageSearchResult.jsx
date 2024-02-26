@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import PaginationButton from "./PaginationButton";
 
 const ImageSearchResult = ({ results }) => {
   return (
@@ -30,6 +31,9 @@ const ImageSearchResult = ({ results }) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="ml-16">
+        <PaginationButton />
       </div>
     </div>
   );
