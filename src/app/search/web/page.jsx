@@ -1,3 +1,4 @@
+import WebSearchResults from "@/components/WebSearchResults";
 import Link from "next/link";
 import React from "react";
 
@@ -14,7 +15,7 @@ const WebSearchPage = async ({ searchParams }) => {
     return (
       <div className="flex flex-col justify-center items-center pt-10">
         <h1 className="text-4xl mb-4">
-          No results found for "{searchParams.q}"
+          No results found for &quot;{searchParams.q}&quot;
         </h1>
         <p className="text-lg">
           Please try searching for something else or go back to{" "}
@@ -25,12 +26,7 @@ const WebSearchPage = async ({ searchParams }) => {
       </div>
     );
   }
-  return (
-    <div>
-      {result &&
-        result.map((item, index) => <div key={index}>{item.title}</div>)}
-    </div>
-  );
+  return <div>{result && <WebSearchResults results={data} />}</div>;
 };
 
 export default WebSearchPage;
