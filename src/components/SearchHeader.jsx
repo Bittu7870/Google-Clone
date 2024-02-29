@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Logo from "../../public/googlelogo.png";
+
 import SearchBox from "./SearchBox";
 import { RiSettings3Line } from "react-icons/ri";
 import { TbGridDots } from "react-icons/tb";
@@ -13,7 +13,7 @@ const SearchHeader = () => {
       <div className="flex items-center justify-between p-6 w-full">
         <Link href="/">
           <Image
-            src={Logo}
+            src="/googlelogo.png"
             alt="google-logo"
             width={120}
             height={40}
