@@ -10,7 +10,7 @@ const WebSearchResults = ({ results }) => {
         About {results.searchInformation?.formattedTotalResults} results (
         {results.searchInformation?.formattedSearchTime}seconds)
       </p>
-      {results.items.map((item, index) => (
+      {results?.items.map((item, index) => (
         <div key={index} className="mb-8 max-w-xl">
           <div className="group flex flex-col">
             <Link href={item.link}>{item.formattedUrl}</Link>
